@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Post = require('../Instaclone-backend/models/post.js');
+const Post = require('../models/post.js');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const { storage } = require('./cloudinary');
