@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Post = require('../models/post.js');
+const Post = require('../models/post');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const { storage } = require('./cloudinary');
@@ -10,11 +10,11 @@ router.use(bodyParser.urlencoded({ extended: false }))
 router.use(bodyParser.json())
 
 
-const parser = multer({ storage: storage });
+const upload = multer({ storage: storage });
 
-router.post('/', parser.single('file'), async (req, res) => {
+router.post('/',upload.single('PostImage'), async (req, res) => {
+    console.log(req.file);
     const { name, location, description } = req.body;
-    console.log(req.file)
     try {
         let post = await Post.create({
             name: name,
