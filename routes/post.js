@@ -14,6 +14,7 @@ const parser = multer({ storage: storage });
 
 router.post('/', parser.single('file'), async (req, res) => {
     const { name, location, description } = req.body;
+    console.log(req.file)
     try {
         let post = await Post.create({
             name: name,
