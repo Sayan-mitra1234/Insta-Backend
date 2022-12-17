@@ -12,7 +12,7 @@ router.use(bodyParser.json())
 
 const parser = multer({ storage: storage });
 
-router.post('/', parser.single('file'), async (req, res) => {
+router.post('/post', parser.single('file'), async (req, res) => {
     const { name, location, description } = req.body;
     try {
         let post = await Post.create({
