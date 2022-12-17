@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 
 
-app.use('/post', postRoutes);
+//app.use('/post', postRoutes);
 
 app.use('/*', (req, res) => {
     res.status(404).send('Page Not Found');
